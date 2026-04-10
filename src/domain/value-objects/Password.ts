@@ -1,4 +1,4 @@
-import { InvalidPasswordError } from "../errors/InvalidPasswordError.js";
+import { InvalidPasswordError } from "../errors/Exceptions/InvalidPasswordError.ts";
 
 export class Password {
   private constructor(private value: string) {}
@@ -23,11 +23,15 @@ export class Password {
     }
 
     if (!hasUpperCaseRegex.test(trimmed)) {
-      throw new InvalidPasswordError("Senha deve conter pelo menos uma letra maiúscula.");
+      throw new InvalidPasswordError(
+        "Senha deve conter pelo menos uma letra maiúscula.",
+      );
     }
 
     if (!hasLowerCaseRegex.test(trimmed)) {
-      throw new InvalidPasswordError("Senha deve conter pelo menos uma letra minúscula.");
+      throw new InvalidPasswordError(
+        "Senha deve conter pelo menos uma letra minúscula.",
+      );
     }
 
     if (!hasNumberRegex.test(trimmed)) {
@@ -35,7 +39,9 @@ export class Password {
     }
 
     if (!hasSpecialCharacterRegex.test(trimmed)) {
-      throw new InvalidPasswordError("Senha deve conter pelo menos um caractere especial.");
+      throw new InvalidPasswordError(
+        "Senha deve conter pelo menos um caractere especial.",
+      );
     }
 
     return new Password(trimmed);

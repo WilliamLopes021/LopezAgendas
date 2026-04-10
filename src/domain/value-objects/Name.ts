@@ -1,4 +1,4 @@
-import { InvalidNameError } from "../errors/InvalidNameError.js";
+import { InvalidNameError } from "../errors/Exceptions/InvalidNameError.ts";
 
 export class Name {
   private constructor(private value: string) {}
